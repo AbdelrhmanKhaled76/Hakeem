@@ -2,8 +2,8 @@ import axios, { AxiosError } from "axios";
 import { authStorage } from "../storage";
 
 export const api = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_API_URL,
-  timeout: 10000,
+  baseURL: process.env.NEXT_PUBLIC_API_URL || "https://hakeem1.runasp.net",
+  timeout: 60000,
 });
 
 api.interceptors.request.use(

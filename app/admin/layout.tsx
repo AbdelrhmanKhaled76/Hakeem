@@ -19,13 +19,13 @@ export default function AdminLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const { isCollapsed, toggleMobileMenu } = useSidebarStore();
+  const { toggleMobileMenu } = useSidebarStore();
 
   return (
     <div className="min-h-screen bg-slate-50/50">
       <AdminSidebar />
-      <div className={`flex flex-col min-h-screen transition-all duration-300 ltr:pl-0 rtl:pr-0 ${isCollapsed ? "ltr:md:pl-[80px] rtl:md:pr-[80px]" : "ltr:md:pl-[80px] rtl:md:pr-[80px] ltr:lg:pl-[260px] rtl:lg:pr-[260px]"}`}>
-        <header className="sticky top-0 z-30 flex h-16 items-center justify-between md:justify-end px-4 sm:px-8 bg-white/80 backdrop-blur border-b border-slate-100">
+      <div className="ltr:pl-0 rtl:pr-0 ltr:md:pl-[240px] rtl:md:pr-[240px] flex flex-col min-h-screen transition-all duration-300">
+        <header className="sticky top-0 z-40 flex h-16 items-center justify-between md:justify-end px-4 sm:px-8 bg-white/90 backdrop-blur-md border-b border-slate-100 shadow-sm">
           <button 
             onClick={toggleMobileMenu}
             className="md:hidden p-2 text-slate-600 hover:text-primary hover:bg-slate-100 rounded-lg transition-colors"

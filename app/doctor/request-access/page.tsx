@@ -1,45 +1,71 @@
 "use client";
 
-import React, { useState, use } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { Input } from "@/components/ui/Input";
 import { Button } from "@/components/ui/Button";
 import { Toast } from "@/components/ui/Toast";
 import { HugeiconsIcon } from "@hugeicons/react";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { requestPatientAccess } from "@/lib/api/patients";
 import {
   ArrowLeft01Icon,
-  InformationCircleIcon,
-  UserIcon,
-  Shield01Icon
+  Search01Icon,
+  Shield01Icon,
 } from "@hugeicons/core-free-icons";
 import { AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/localization/LanguageContext";
 
-export default function RequestAccessPage({ params }: { params: Promise<{ code: string }> }) {
+const getRequestAccessSchema = (t: any) => z.object({
+  patientCode: z.string().min(1, t('doctor.requestAccess.invalidFormat') || "Patient code is required"),
+});
+
+type RequestAccessFormValues = z.infer<ReturnType<typeof getRequestAccessSchema>>;
+
+export default function RequestAccessPage() {
   const { t } = useLanguage();
   const router = useRouter();
-  const { code } = use(params);
-  const [isSending, setIsSending] = useState(false);
+  const [status, setStatus] = useState<"idle" | "loading">("idle");
   const [toast, setToast] = useState<{ message: string; type: "success" | "error" | "warning" } | null>(null);
 
-  const handleRequestAccess = async () => {
-    setIsSending(true);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<RequestAccessFormValues>({
+    resolver: zodResolver(getRequestAccessSchema(t)),
+    defaultValues: {
+      patientCode: "",
+    },
+  });
+
+  const onSubmit = async (data: RequestAccessFormValues) => {
+    setStatus("loading");
     setToast(null);
-    
+
     try {
-      await requestPatientAccess({ patientCode: code });
-      setToast({ message: t('doctor.requestAccess.successMessage'), type: "success" });
+      await requestPatientAccess({ patientCode: data.patientCode });
       
+      setToast({ message: t('doctor.requestAccess.successMessage'), type: "success" });
       setTimeout(() => {
-        router.push(`/doctor/patients/redeem-access/${code}`);
-      }, 600);
+        router.push(`/doctor/patients/redeem-access/${data.patientCode}`);
+      }, 500);
+
     } catch (err: any) {
+      setStatus("idle");
       let errorMessage = t('doctor.requestAccess.failedMessage');
       
       const statusCode = err.response?.status;
       if (statusCode === 404) {
-        errorMessage = t('doctor.requestAccess.patientNotFound');
+        // Not verified, navigate to verify-identity
+        setToast({ message: t('doctor.requestAccess.patientNotFound') || "Patient not found. Please verify the patient first.", type: "warning" });
+        setTimeout(() => {
+          router.push(`/doctor/verify-identity?code=${data.patientCode}`);
+        }, 1500);
+        return;
       } else if (statusCode === 409) {
         errorMessage = t('doctor.requestAccess.alreadyPending');
       } else if (statusCode === 422) {
@@ -49,7 +75,6 @@ export default function RequestAccessPage({ params }: { params: Promise<{ code: 
       }
       
       setToast({ message: errorMessage, type: "error" });
-      setIsSending(false);
     }
   };
 
@@ -91,47 +116,31 @@ export default function RequestAccessPage({ params }: { params: Promise<{ code: 
           </div>
         </div>
 
-        <div className="space-y-4">
-          {/* Patient Details Pill */}
-          <div className="flex items-center justify-between p-3.5 rounded-xl bg-slate-50 border border-slate-100">
-            <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center text-primary shrink-0">
-                <HugeiconsIcon icon={UserIcon} className="w-4 h-4" />
-              </div>
-              <div>
-                <span className="text-xs font-bold text-slate-700 block">{t('doctor.requestAccess.patientData')}</span>
-                <span className="text-xs text-slate-500 font-medium">Code: <span className="font-mono font-bold text-slate-900">{code}</span></span>
-              </div>
-            </div>
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+          <div className="space-y-1.5">
+            <label className="text-xs font-semibold text-slate-700" htmlFor="patientCode">
+              {t('doctor.verifyIdentity.patientCode') || "Patient Code"}
+            </label>
+            <Input
+              placeholder={t('doctor.verifyIdentity.patientCodePlaceholder') || "Enter patient code"}
+              iconLeft={<HugeiconsIcon icon={Search01Icon} className="h-4 w-4 text-slate-400" />}
+              id="patientCode"
+              {...register("patientCode")}
+              error={errors.patientCode?.message}
+            />
           </div>
 
-          {/* Info Alert Box */}
-          <div className="flex items-start gap-3 p-3.5 bg-primary/5 rounded-xl border border-primary/15">
-            <HugeiconsIcon icon={InformationCircleIcon} className="w-4 h-4 text-primary shrink-0 mt-0.5" />
-            <p className="text-xs font-medium text-slate-600 leading-relaxed">
-              {t('doctor.requestAccess.infoMessage')}
-            </p>
-          </div>
-
-          {/* Submit Button */}
           <div className="pt-4 border-t border-slate-100 mt-6">
             <Button 
-              onClick={handleRequestAccess}
-              disabled={isSending}
+              type="submit"
+              disabled={status === "loading"}
               fullWidth 
               className="py-2.5 text-sm font-semibold"
             >
-              {isSending ? (
-                <div className="flex items-center justify-center gap-2">
-                  <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                  <span>{t('doctor.requestAccess.sending')}</span>
-                </div>
-              ) : (
-                t('doctor.requestAccess.sendRequest')
-              )}
+              {status === "loading" ? t('doctor.requestAccess.sending') : t('doctor.requestAccess.sendRequest')}
             </Button>
           </div>
-        </div>
+        </form>
       </div>
     </div>
   );

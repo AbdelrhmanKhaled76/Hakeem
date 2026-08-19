@@ -7,7 +7,12 @@
     "loadingText": "Loading",
     "error": "Error",
     "success": "Success",
-    "warning": "Warning"
+    "warning": "Warning",
+    "showing": "Showing",
+    "to": "to",
+    "of": "of",
+    "next": "Next",
+    "previous": "Previous"
   },
   "language": {
     "label": "Language",
@@ -115,16 +120,20 @@
       "subtitle": "Activity Summary Overview",
       "description": "System overview at a glance.",
       "activeUsers": "Active Users",
+      "activePatients": "Active Patients",
+      "activeDoctors": "Active Doctors",
       "documentsUploaded": "Documents Uploaded",
       "extractionsCompleted": "Extractions Completed",
       "cvVersionsGenerated": "CV Versions Generated",
       "from": "From",
       "to": "to",
       "toLabel": "To",
-      "dateError": "From Date cannot be after To Date"
+      "dateError": "From Date cannot be after To Date",
+      "futureDateError": "Selected dates cannot be in the future"
     },
     "doctors": {
       "title": "Doctors",
+      "subtitle": "Manage and oversee all registered doctors",
       "addDoctor": "Add Doctor",
       "doctor": "Doctor",
       "specialty": "Specialty",
@@ -208,6 +217,8 @@
       "passwordsDoNotMatch": "Passwords do not match",
       "createSuccess": "Admin created successfully",
       "createFailed": "Failed to create admin",
+      "active": "Active",
+      "subtitle": "Manage all system users",
       "suspended": "Suspended"
     },
     "auditLogs": {
@@ -238,7 +249,9 @@
       "details": "Details",
       "from": "From",
       "to": "To",
-      "noResults": "No audit logs found."
+      "noResults": "No audit logs found.",
+      "dateError": "From Date cannot be after To Date",
+      "futureDateError": "Selected dates cannot be in the future"
     },
     "apiTester": {
       "title": "API Tester",
@@ -412,6 +425,7 @@
       "uploadButton": "Upload Document",
       "uploadSuccess": "Document uploaded successfully",
       "uploadFailed": "Failed to upload document",
+      "futureDateError": "Document date cannot be in the future",
       "breadcrumbWorkspace": "Workspace",
       "breadcrumbDocuments": "Documents",
       "breadcrumbUpload": "Upload",
@@ -461,6 +475,8 @@
       "verified": "Verified",
       "ready": "Ready",
       "queued": "Queued",
+      "draft": "Draft",
+      "processing": "Processing",
       "version": "Version",
       "noResults": "No CVs Found",
       "noResultsDesc": "We couldn't find any Medical CVs matching your current filters.",
@@ -499,7 +515,13 @@
       "clearChat": "Clear Conversation",
       "noMessages": "No messages yet. Ask a question to begin.",
       "sources": "Sources",
-      "confidence": "Confidence"
+      "confidence": "Confidence",
+      "prompts": {
+        "analyzeLab": "Analyze recent lab results",
+        "checkInteractions": "Check drug interactions",
+        "summarizeHistory": "Summarize patient history",
+        "draftReferral": "Draft a referral letter"
+      }
     },
     "profile": {
       "title": "My Profile",

@@ -67,7 +67,7 @@ The web app covers the same core product areas as the design reference:
 | Class merging | `clsx` + `tailwind-merge` via `cn()` |
 | Variants | `class-variance-authority` (CVA) |
 | Backend | ASP.NET Core API |
-| Base URL | (Provided via env variable) |
+| Base URL | `http://hakeem1.runasp.net` |
 
 ---
 
@@ -815,7 +815,7 @@ For share-link / expiry flows on Medical CV page.
 
 ```typescript
 // src/lib/api/client.ts
-export const BASE_URL = process.env.NEXT_PUBLIC_API_URL;
+export const BASE_URL = 'http://hakeem1.runasp.net';
 
 export const apiClient = axios.create({
   baseURL: BASE_URL,
@@ -1223,7 +1223,7 @@ Heading font:       Plus Jakarta Sans Bold
 Body font:          Inter Regular
 Sidebar width:      240px (expanded) / 72px (collapsed)
 Navbar height:      64px
-API base:           (Provided via env variable)
+API base:           http://hakeem1.runasp.net
 ```
 
 ---

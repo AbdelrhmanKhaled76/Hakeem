@@ -7,7 +7,12 @@
     "loadingText": "جاري التحميل",
     "error": "غلطة",
     "success": "نجاح",
-    "warning": "تحذير"
+    "warning": "تحذير",
+    "showing": "عرض",
+    "to": "إلى",
+    "of": "من",
+    "next": "التالي",
+    "previous": "السابق"
   },
   "language": {
     "label": "اللغة",
@@ -115,16 +120,20 @@
       "subtitle": "ملخص النشاطات",
       "description": "نظرة سريعة على النظام.",
       "activeUsers": "المستخدمين النشطين",
+      "activePatients": "المرضى النشطين",
+      "activeDoctors": "الأطباء النشطين",
       "documentsUploaded": "الملفات المرفوعة",
       "extractionsCompleted": "البيانات اللي اتسحبت",
       "cvVersionsGenerated": "نسخ السير اللي اتعملت",
       "from": "من",
       "to": "لحد",
       "toLabel": "لحد",
-      "dateError": "تاريخ البداية ماينفعش يكون بعد تاريخ النهاية"
+      "dateError": "تاريخ البداية ماينفعش يكون بعد تاريخ النهاية",
+      "futureDateError": "تاريخ البداية أو النهاية لا يمكن أن يكون في المستقبل"
     },
     "doctors": {
       "title": "الدكاترة",
+      "subtitle": "إدارة دكاترة النظام والمتخصصين",
       "addDoctor": "ضيف دكتور",
       "doctor": "الدكتور",
       "specialty": "التخصص",
@@ -172,7 +181,6 @@
       "neurology": "الأعصاب",
       "pediatrics": "طب الأطفال",
       "orthopedics": "العظام",
-      "subtitle": "إدارة دكاترة النظام والمتخصصين",
       "passwordHelpText": "سيُطلب من الدكتور تغيير كلمة السر دي لما يسجل دخول لأول مرة."
     },
     "users": {
@@ -245,7 +253,9 @@
       "details": "التفاصيل",
       "from": "من",
       "to": "لحد",
-      "noResults": "مفيش سجلات."
+      "noResults": "مفيش سجلات.",
+      "dateError": "تاريخ البداية ماينفعش يكون بعد تاريخ النهاية",
+      "futureDateError": "تاريخ البداية أو النهاية لا يمكن أن يكون في المستقبل"
     },
     "apiTester": {
       "title": "اختبار الواجهة",
@@ -419,6 +429,7 @@
       "uploadButton": "ارفع الملف",
       "uploadSuccess": "الملف اترفع بنجاح",
       "uploadFailed": "حصل مشكلة والملف مترفعش",
+      "futureDateError": "تاريخ المستند لا يمكن أن يكون في المستقبل",
       "breadcrumbWorkspace": "البيانات",
       "breadcrumbDocuments": "الملفات",
       "breadcrumbUpload": "ارفع",
@@ -468,6 +479,8 @@
       "verified": "موثق",
       "ready": "جاهز",
       "queued": "في الطابور",
+      "draft": "مسودة",
+      "processing": "بيتم التجهيز",
       "version": "النسخة",
       "noResults": "ملقيناش سير طبية",
       "noResultsDesc": "ملقيناش ولا سيرة طبية مطابقة للي بتدور عليه.",
@@ -506,7 +519,13 @@
       "clearChat": "امسح المحادثة",
       "noMessages": "لسه مفيش رسايل. اسأل سؤال عشان تبدأ.",
       "sources": "المصادر",
-      "confidence": "نسبة الثقة"
+      "confidence": "نسبة الثقة",
+      "prompts": {
+        "analyzeLab": "تحليل نتائج المختبر الأخيرة",
+        "checkInteractions": "التحقق من التفاعلات الدوائية",
+        "summarizeHistory": "تلخيص التاريخ الطبي للمريض",
+        "draftReferral": "صياغة رسالة إحالة"
+      }
     },
     "profile": {
       "title": "ملفي الشخصي",
