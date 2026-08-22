@@ -129,7 +129,33 @@
       "to": "إلى",
       "toLabel": "إلى",
       "dateError": "تاريخ البداية لا يمكن أن يكون بعد تاريخ النهاية",
-      "futureDateError": "تاريخ البداية أو النهاية لا يمكن أن يكون في المستقبل"
+      "futureDateError": "تاريخ البداية أو النهاية لا يمكن أن يكون في المستقبل",
+      "pipelineFunnelTitle": "مراحل معالجة المستندات والذكاء الاصطناعي",
+      "pipelineFunnelSubtitle": "تتبع رفع المستندات واستخراج البيانات وتوليد السير المرضية",
+      "userDistributionTitle": "قاعدة المستخدمين النشطين",
+      "userDistributionSubtitle": "نسبة المرضى النشطين مقارنة بالأطباء",
+      "userRatio": "نسبة المرضى لكل طبيب",
+      "activePatientsLabel": "المرضى",
+      "activeDoctorsLabel": "الأطباء",
+      "processingRate": "نسبة إتمام المعالجة",
+      "conversionRate": "نسبة توليد السير الطبية",
+      "noActivityData": "لا توجد بيانات أنشطة في الفترة المحددة",
+      "stageUploaded": "١. المرفوعة",
+      "stageExtracted": "٢. المستخرجة",
+      "stageCvSynthesized": "٣. السير المولدة",
+      "stage1Desc": "المرحلة الأولى: استلام الملفات",
+      "stage2Desc": "المرحلة الثانية: القراءة والاستخراج",
+      "stage3Desc": "المرحلة الثالثة: توليد السير الطبية",
+      "initialInput": "المدخلات الأساسية",
+      "ofUploads": "من المرفوعات",
+      "ofExtractions": "من المستخرجات",
+      "users": "مستخدمين",
+      "totalRegistered": "إجمالي المسجلين",
+      "accounts": "حساب",
+      "docExtractionSuccess": "نسبة نجاح استخراج المستندات",
+      "cvSynthesisConversion": "نسبة تحويل السير الطبية",
+      "docsProcessedSummary": "تمت معالجة {count} من أصل {total} ملف",
+      "cvGeneratedSummary": "تم توليد {count} سيرة من {total} عملية استخراج"
     },
     "doctors": {
       "title": "الأطباء",
@@ -219,9 +245,15 @@
       "createFailed": "لم نتمكن من إنشاء حساب المسؤول",
       "active": "نشط",
       "userId": "رقم المستخدم",
+      "confirmSuspend": "هل أنت متأكد أنك تريد إيقاف هذا المستخدم؟",
+      "confirmActivate": "هل أنت متأكد أنك تريد تفعيل هذا المستخدم؟",
       "cancel": "إلغاء",
       "confirm": "تأكيد",
       "back": "رجوع",
+      "loading": "جاري جلب بيانات المستخدم...",
+      "statusUpdateSuccess": "تم تحديث حالة المستخدم بنجاح.",
+      "updateError": "فشل تحديث حالة المستخدم.",
+      "invalidTransition": "تغيير غير صالح للحالة.",
       "subtitle": "إدارة كافة مستخدمي النظام",
       "suspended": "موقوف"
     },
@@ -313,7 +345,8 @@
       "addSuccess": "تمت إضافة المريض بنجاح",
       "addFailed": "فشل إضافة المريض",
       "searchByNameOrId": "البحث بالاسم أو الرقم القومي…",
-      "notFound": "المريض غير موجود."
+      "notFound": "المريض غير موجود.",
+      "sessionClosedOrExpired": "قد يكون المريض قد أغلق الجلسة أو انتهى وقت الجلسة."
     },
     "verifyIdentity": {
       "title": "التحقق من هوية المريض",
@@ -507,7 +540,8 @@
       "approved": "تمت الموافقة",
       "latestVersion": "أحدث نسخة",
       "breadcrumbMedicalCv": "السيرة الطبية",
-      "breadcrumbNew": "سيرة طبية جديدة"
+      "breadcrumbNew": "سيرة طبية جديدة",
+      "fetchError": "حدث خطأ أثناء جلب السيرة الطبية."
     },
     "askAi": {
       "title": "المساعد الطبي الذكي",
@@ -616,6 +650,7 @@
     "loading": "جاري التحميل…",
     "approved": "تمت الموافقة",
     "pending": "قيد الانتظار",
-    "name": "الاسم"
+    "name": "الاسم",
+    "pageSize": "عناصر بالصفحة"
   }
 }

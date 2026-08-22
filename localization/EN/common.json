@@ -129,7 +129,33 @@
       "to": "to",
       "toLabel": "To",
       "dateError": "From Date cannot be after To Date",
-      "futureDateError": "Selected dates cannot be in the future"
+      "futureDateError": "Selected dates cannot be in the future",
+      "pipelineFunnelTitle": "Document AI Pipeline Funnel",
+      "pipelineFunnelSubtitle": "Step-by-step document processing and CV synthesis progress",
+      "userDistributionTitle": "Active User Base",
+      "userDistributionSubtitle": "Proportion of active patients vs doctors",
+      "userRatio": "Patient to Doctor Ratio",
+      "activePatientsLabel": "Patients",
+      "activeDoctorsLabel": "Doctors",
+      "processingRate": "Processing Rate",
+      "conversionRate": "CV Conversion Rate",
+      "noActivityData": "No activity data in selected period",
+      "stageUploaded": "1. Uploaded",
+      "stageExtracted": "2. Extracted",
+      "stageCvSynthesized": "3. CV Synthesized",
+      "stage1Desc": "Stage 1: Ingestion",
+      "stage2Desc": "Stage 2: OCR & Extraction",
+      "stage3Desc": "Stage 3: Medical CV Synthesis",
+      "initialInput": "Initial Input",
+      "ofUploads": "of uploads",
+      "ofExtractions": "of extractions",
+      "users": "Users",
+      "totalRegistered": "Total Registered",
+      "accounts": "accounts",
+      "docExtractionSuccess": "Document Extraction Success",
+      "cvSynthesisConversion": "CV Synthesis Conversion",
+      "docsProcessedSummary": "{count} of {total} documents processed",
+      "cvGeneratedSummary": "{count} versions from {total} extractions"
     },
     "doctors": {
       "title": "Doctors",
@@ -218,6 +244,16 @@
       "createSuccess": "Admin created successfully",
       "createFailed": "Failed to create admin",
       "active": "Active",
+      "userId": "User ID",
+      "confirmSuspend": "Are you sure you want to suspend this user?",
+      "confirmActivate": "Are you sure you want to activate this user?",
+      "cancel": "Cancel",
+      "confirm": "Confirm",
+      "back": "Back",
+      "loading": "Loading user data...",
+      "statusUpdateSuccess": "User status updated successfully.",
+      "updateError": "Failed to update user status.",
+      "invalidTransition": "Invalid status transition.",
       "subtitle": "Manage all system users",
       "suspended": "Suspended"
     },
@@ -309,7 +345,8 @@
       "addSuccess": "Patient added successfully",
       "addFailed": "Failed to add patient",
       "searchByNameOrId": "Search by name or national ID…",
-      "notFound": "Patient not found."
+      "notFound": "Patient not found.",
+      "sessionClosedOrExpired": "The patient may have closed the session or the session time ended."
     },
     "verifyIdentity": {
       "title": "Verify Patient Identity",
@@ -503,7 +540,8 @@
       "approved": "Approved",
       "latestVersion": "Latest Version",
       "breadcrumbMedicalCv": "Medical CV",
-      "breadcrumbNew": "New CV"
+      "breadcrumbNew": "New CV",
+      "fetchError": "Failed to load Medical CVs."
     },
     "askAi": {
       "title": "AI Assistant",
@@ -612,6 +650,7 @@
     "loading": "Loading…",
     "approved": "Approved",
     "pending": "Pending",
-    "name": "Name"
+    "name": "Name",
+    "pageSize": "Items per page"
   }
 }
